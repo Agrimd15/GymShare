@@ -24,6 +24,10 @@ As long as you have the pi and your laptop on the same wifi the pi should automa
 
 You can check out the intensity graph and the caloric loss graph on the website to see how your workout went
 
+Here is the picture of what we made:
+![hardware](https://user-images.githubusercontent.com/35862574/112746322-de0ea200-8f62-11eb-8a10-b3d0c0d462fd.png)
+
+
 ### Other components to the project
 
 Twilio Api: We used this to give live updates and feedback to the user based on their inputs to the website and the data collected via the fitness tracker
