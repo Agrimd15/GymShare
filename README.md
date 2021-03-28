@@ -17,16 +17,11 @@ You need the VCV pin to go to the 5V pin on the pi
 The GND port on the Ground port on the pi
 The CH_pin has to go the pin of Channel 21 on the pi
 
-
 From there all you need to do is run the program fitness.py on your raspberry pi, and you will have a working fitness tracker that can track the intensity of your training and the calories burned
 
 As long as you have the pi and your laptop on the same wifi the pi should automatically connect to your dashboard and give you live updates on your workout
 
 You can check out the intensity graph and the caloric loss graph on the website to see how your workout went
-
-Here is the picture of what we made:
-![hardware](https://user-images.githubusercontent.com/35862574/112746322-de0ea200-8f62-11eb-8a10-b3d0c0d462fd.png)
-
 
 ### Other components to the project
 
@@ -34,6 +29,16 @@ Twilio Api: We used this to give live updates and feedback to the user based on 
 Google Cloud: Maps Api to list gyms near you and locate gyms. Sign-in with google to make user profiles. 
 Website: Functionality includes, data collection, dashboard with progress, and chat bot
 
+### Required dependencies
+RPi.GPIO
+
+time
+
+gspread(pip3 install gspread)
+
+oauth2client(pip3 install oauth2client)
+
+datetime (pip3 install datetime)
  
  #### Credits
  LA Hacks 2021
