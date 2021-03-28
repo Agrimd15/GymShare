@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gym Assesment</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<!-- Name, Height, Weight, Amount of daily fitness on a scale of 1-5, Age, 
+				Would you like to reduce weight/lose weight/maintain weight, 
+				Would you like to improve your respiration, 
+				Would you like to tone your muscles or bulk up -->
+			<form action="/send" method="POST" role="form" class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Gym Assessment
+				</span>
+                <span class="contact100-form-p">
+					This form is a guide to help you determine which workout(s) you'll need!
+				</span>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">First and Last Name</span>
+					<input class="input100" type="text" name="name" id="name" placeholder="Enter Your First and Last Name">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Phone Number</span>
+					<input class="input100" type="number" name="phone" id="phone" placeholder="Enter Your Phone Number Using The Format +1-xxx-xxx-xxxx">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Height (in)</span>
+					<input class="input100" type="number" name="height" id="height" placeholder="Enter Your Height In Inches">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Weight (lbs)</span>
+					<input class="input100" type="number" name="weight" id="weight" placeholder="Enter Your Weight In Pounds">
+				</div>
+
+				
+
+				<div class="wrap-contact100-form-range">
+					<span class="contact100-form-p" id="slider_value"></span>
+					<br></br>
+					<span class="label-input100">Amount of Daily Fitness On a Scale of 1-5</span>
+
+						<!-- $<span id="value-lower">1</span> - $<span id="value-upper">5</span> -->
+					<input type="range" min="1" max="5" value="1" id="fitnessLevel" name="fitnessLevel" onchange="show_value(this.value);">
+
+					<script>
+						function show_value(x)
+						{
+							document.getElementById("slider_value").innerHTML=x;
+						}
+					</script>
+
+				</div>
+
+				<!-- NEW STUFF -->
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Age</span>
+					<input class="input100" type="number" name="age" id="age" placeholder="Enter Your Age">
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+						<span class="label-input100">Would you like to reduce weight, maintain weight, or gain weight?</span>
+			
+
+
+					<select class="form-select mt-1 block w-full" id="weightChoice" name= "weightChoice">
+						<option>Please select an option</option>
+						<option>Reduce Weight</option>
+						<option>Maintain Weight</option>
+						<option>Gain Weight</option>	  
+					</select>
+
+				</div>
+
+				<!--Would you like to improve your respiration-->
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<div class="wrap-contact100-form-radio">
+						<span class="label-input100">Would you like to improve your respiration?</span>
+
+						<select class="form-select mt-1 block w-full" id="respiration" name= "respiration">
+							<option>Please select an option</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
+					</div>
+
+				</div>
+
+				<!--Would you like to tone your muscles or bulk up-->
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<div class="wrap-contact100-form-radio">
+						<span class="label-input100">Would you like to tone your muscle or build muscle mass?</span>
+
+
+						<select class="form-select mt-1 block w-full" id="muscles" name= "muscles">
+							<option>Please select an option</option>
+							<option>Tone muscles</option>
+							<option>Build muscle mass</option>
+						</select>
+					</div>
+
+				</div>
+
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Message</span>
+					<textarea class="input100" name="message" id="message" placeholder="Anything Else We Should Know"></textarea>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" type="submit">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/noui/nouislider.min.js"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
