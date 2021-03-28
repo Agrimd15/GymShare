@@ -5,6 +5,9 @@
 
 The SW-420 sensor is a motion sensor with three pins (VCV, GND, CH_PIN)
 
+You can buy the parts here: https://www.amazon.com/SW-420-Normally-Closed-Vibration-Sensor/dp/B01FDGTTY8
+For more info on the sensor refer to the following: https://wiki.seeedstudio.com/Grove-Vibration_Sensor_SW-420/
+
 To set up our hardware to work with our code you need to understand the pinout for the Raspberry Pi Zero W
 
 ![Raspberry-PI-Zero-Pinout-schema](https://user-images.githubusercontent.com/35862574/112744286-9896a880-8f53-11eb-98f8-9ddfec1b05ec.jpeg)
