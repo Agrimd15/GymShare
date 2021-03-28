@@ -6,6 +6,47 @@ from oauth2client.service_account import ServiceAccountCredentials
 from google.oauth2.service_account import Credentials
 import datetime
 
+#################################
+
+# ADD TWILIO #
+
+import os
+from twilio.rest import TwilioRestClient
+from credentials import account_sid, auth_token, my_cell, my_twilio
+from twilio.rest import Client
+
+# Find these values at https://twilio.com/user/account
+#client = Client(account_sid, auth_token)
+
+#account_sid = os.environ['TWILIO_ACCOUNT_SID']
+#auth_token = os.environ['TWILIO_AUTH_TOKEN']
+client = Client(account_sid, auth_token)
+
+# test twilio #
+my_msg = "Twilio Test: This should be the first text that goes through"
+message = client.messages.create(to=my_cell, from_=my_twilio,body=my_msg)
+
+# Functions #
+def startSMS():
+        my_msg = "Your workout is starting now"
+        message = client.messages.create(to=my_cell, from_=my_twilio,body=my_msg)
+
+def bookSMS():
+        my_msg = "Your gym has been booked: *** For Dev Purposes we can send the google maps link here"
+        message = client.messages.create(to=my_cell, from_=my_twilio,body=my_msg)
+
+def halfSMS():
+        global calories
+        my_msg = ("You are half way through your workout. You have bruned ", calories)
+        message = client.messages.create(to=my_cell, from_=my_twilio,body=my_msg)
+
+def endSMS():
+        my_msg = "Your workout has ended: *** For Dev purposes we can send them a link to their data on the website. \n Schedule another session here: ***link"
+        message = client.messages.create(to=my_cell, from_=my_twilio,body=my_msg)
+
+
+###############################
+
 currentDT = str(datetime.datetime.now())
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 creds = Credentials.from_service_account_file('fitness-pro-308916-607b89e77902.json', scopes=scope)
@@ -45,6 +86,11 @@ def callback(channel):
 GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime = 300)
 GPIO.add_event_callback(channel, callback)
 
+#Twilio book sms
+bookSMS()
+#Twilio start sms
+startSMS()
+
 while True:
         if seconds>=30 and shake>=90 and seconds%30 ==  0:
                         calories =calories+1
@@ -72,4 +118,6 @@ while True:
         time.sleep(1)
         seconds = seconds+1
         print(seconds)
+#Twilio end sms
+endSMS()
 
